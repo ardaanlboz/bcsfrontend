@@ -1,0 +1,1 @@
+export const karmaPoints= { value : 0 };

@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { ToastContainer } from 'react-toastify';
+import Navbar from './layouts/navbar/navbar';
+import Footer from './layouts/footer/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import  Home  from './pages/Home/Home';
 
-function App() {
+import * as themes from './styles/theme'
+
+
+export default function App() {
+  /*        
+            <Route path='/meet' element={} />
+            <Route path='/signup' element={signup} />
+            <Route path='/login' element={login} />
+            <Route path='/tutors' element={} />
+            <Route path='/user/:id' element={EmployerUpdate} />
+            <Route path='/tutor/:id' element={EmployerUpdate} />
+  */
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div id = 'App' className = 'd-flex flex-column' >
+      <Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+          </Routes>
+        </main>
+        <Footer />
+        <ToastContainer
+          position='bottom-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </Router>
+    </div >
+    
+  )
 }
-
-export default App;

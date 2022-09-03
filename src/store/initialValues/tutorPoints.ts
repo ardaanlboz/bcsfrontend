@@ -1,0 +1,1 @@
+export const tutorPoints= { value : 0 };
